@@ -79,17 +79,13 @@ const delay = ms => new Promise(res => setTimeout(res, ms));
 
     const urlParams = new URLSearchParams(window.location.search);
 
-    /*
     let frame = urlParams.get('frame')
     
     if (frame == undefined) {
         frame = 0
     }
 
-    console.log(frame)
-
     showInfo(frame, trainsParsed, keys)
-    */
 
     let recordIt = urlParams.get('record')
 
@@ -136,7 +132,7 @@ const showInfo = ((i, trainsParsed, keys) => {
 
     console.log(keys[i])
     
-    timeThingy.innerHTML = `${months[date.getMonth()]} ${date.getDate()}, ${date.getFullYear()} ${date.getHours().toString().padStart(2, '0')}:${date.getMinutes().toString().padStart(2, '0')} Central`
+    timeThingy.innerHTML = `${months[date.getMonth()]} ${date.getDate()}, ${date.getFullYear()} ${date.getHours().toString().padStart(2, '0')}:${date.getMinutes().toString().padStart(2, '0')} ${Intl.DateTimeFormat().resolvedOptions().timeZone}`
     
     console.log('next')
 
