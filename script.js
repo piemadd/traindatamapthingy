@@ -81,14 +81,6 @@ const delay = ms => new Promise(res => setTimeout(res, ms));
 
     const urlParams = new URLSearchParams(window.location.search);
 
-    let frame = urlParams.get('frame')
-    
-    if (frame == undefined) {
-        frame = 0
-    }
-
-    showInfo(frame, trainsParsed, keys)
-
     let recordIt = urlParams.get('record')
 
     console.log(recordIt)
@@ -99,6 +91,14 @@ const delay = ms => new Promise(res => setTimeout(res, ms));
             showInfo(i, trainsParsed, keys)
             await delay(1000);
         }
+    } else {
+        let frame = urlParams.get('frame')
+        
+        if (frame == undefined) {
+            frame = 0
+        }
+    
+        showInfo(frame, trainsParsed, keys)
     }
     
     
