@@ -7,17 +7,35 @@ html, body, #map {
     width: 100vw;
 }
 
-#time {
+.info {
     position: absolute;
     left: 0;
     bottom: 0;
     z-index: 10000;
     font-family: "Inter", sans-serif;
-    font-size:24px;
     color: #fff;
     background-color: #000;
     border-top-right-radius: 12px;
     padding: 4px;
     padding-right: 8px;
+    margin: 0;
+}
+
+.info h1 {
+    font-size:24px;
+}
+
+.info h2 {
+    font-size:20px;
+}
+
+.info p {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-size:18px;
+}
+
+.info h1, h2, p {
     margin: 0;
 }

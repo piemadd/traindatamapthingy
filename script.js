@@ -40,13 +40,37 @@ let icon = L.icon({
     iconAnchor: [8, 8]
 });
 
+let iconLong = L.icon({
+    iconUrl: 'iconLong.png',
+    iconSize: [16, 16],
+    iconAnchor: [8, 8]
+});
+
+let iconState = L.icon({
+    iconUrl: 'iconState.png',
+    iconSize: [16, 16],
+    iconAnchor: [8, 8]
+});
+
+let iconNEC = L.icon({
+    iconUrl: 'iconNEC.png',
+    iconSize: [16, 16],
+    iconAnchor: [8, 8]
+});
+
+let icons = {
+    'Long': iconLong,
+    'State': iconState,
+    'NEC': iconNEC
+}
+
 let pieroMarker = L.marker([50.5, 30.5], {icon: icon}).addTo(map);
 
 let markers = L.layerGroup().addTo(map);
 //let markers = []
 
-map.setView([39.14710270770074, -96.1962890625], 5); //us
-//map.setView([41.02964338716641, -74.24560546875001], 7); //nec
+//map.setView([39.14710270770074, -96.1962890625], 5); //us
+map.setView([41.02964338716641, -74.24560546875001], 7); //nec
 
 
 const delay = ms => new Promise(res => setTimeout(res, ms));
@@ -93,6 +117,7 @@ const delay = ms => new Promise(res => setTimeout(res, ms));
         }
     }
 
+/*
     console.log('no recording')
     let frame = urlParams.get('frame')
     
@@ -101,13 +126,14 @@ const delay = ms => new Promise(res => setTimeout(res, ms));
     }
 
     showInfo(frame, trainsParsed, keys)
+*/
 })();
 
 const showInfo = ((i, trainsParsed, keys, recordIt = false) => {
     let timeThingy = document.getElementById('time')
     let tempList = trainsParsed[keys[i]]
     for (let j = 0; j < tempList.length; j++) {
-        let marker = L.marker(tempList[j].coordinates, {rotationAngle: getAngle(tempList[j].heading), icon: icon});
+        let marker = L.marker(tempList[j].coordinates, {rotationAngle: getAngle(tempList[j].heading), icon: icons[tempList[j].trainType]});
         marker.addTo(markers)
     }
 
