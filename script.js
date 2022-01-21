@@ -133,7 +133,7 @@ const showInfo = ((i, trainsParsed, keys, recordIt = false) => {
     let timeThingy = document.getElementById('time')
     let tempList = trainsParsed[keys[i]]
     for (let j = 0; j < tempList.length; j++) {
-        console.log(tempList[j])
+        console.log(tempList[j].objectID + ' - ' + tempList[j].coordinates)
         let marker = L.marker(tempList[j].coordinates, {rotationAngle: getAngle(tempList[j].heading), icon: icons[tempList[j].trainType]});
         marker.addTo(markers)
     }
