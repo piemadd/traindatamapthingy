@@ -117,7 +117,7 @@ const delay = ms => new Promise(res => setTimeout(res, ms));
         }
     }
 
-    /*
+    
     console.log('no recording')
     let frame = urlParams.get('frame')
     
@@ -126,7 +126,7 @@ const delay = ms => new Promise(res => setTimeout(res, ms));
     }
 
     showInfo(frame, trainsParsed, keys)
-*/
+
 })();
 
 const showInfo = ((i, trainsParsed, keys, recordIt = false) => {
@@ -159,7 +159,7 @@ const showInfo = ((i, trainsParsed, keys, recordIt = false) => {
     
     timeThingy.innerHTML = `${months[date.getMonth()]} ${date.getDate()}, ${date.getFullYear()} ${date.getHours().toString().padStart(2, '0')}:${date.getMinutes().toString().padStart(2, '0')} ${Intl.DateTimeFormat().resolvedOptions().timeZone}`
 
-    screenShot(markers, `${i}.jpg`)
+    //screenShot(markers, `${i}.jpg`)
 })
 
 const screenShot = ((markers, name = "image.jpg", recordit = 'false') => {
