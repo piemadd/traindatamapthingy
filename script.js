@@ -96,8 +96,8 @@ const delay = ms => new Promise(res => setTimeout(res, ms));
     console.log(recordIt)
 
     if (recordIt == 'true') {
-        for (let i = 0; i < 10; i++) {
-        //for (let i = 0; i < 1590; i++) {
+        //for (let i = 0; i < 10; i++) {
+        for (let i = 0; i < 1590; i++) {
             showInfo(i, trainsParsed, keys)
             await delay(1000);
         }
