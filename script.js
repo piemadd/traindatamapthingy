@@ -89,7 +89,7 @@ const delay = ms => new Promise(res => setTimeout(res, ms));
         //for (let i = 0; i < 10; i++) {
         console.log('recording')
         for (let i = 0; i < 1590; i++) {
-            showInfo(i, trainsParsed, keys)
+            showInfo(i, trainsParsed, keys, 'true')
             console.log('recorded ' + i)
             await delay(1000);
             console.log('finished frame ' + i)
