@@ -141,7 +141,7 @@ const showInfo = ((i, trainsParsed, keys) => {
     screenShot(markers, `${i}.jpg`)
 })
 
-const screenShot = ((markers, name = "image.jpg") => {
+const screenShot = ((markers, name = "image.jpg", recordit = 'false') => {
     domtoimage.toJpeg(document.getElementsByTagName('body')[0], { quality: 0.95 })
     .then(function (dataUrl) {
         let link = document.createElement('a');
