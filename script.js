@@ -117,7 +117,6 @@ const delay = ms => new Promise(res => setTimeout(res, ms));
         }
     }
 
-/*
     console.log('no recording')
     let frame = urlParams.get('frame')
     
@@ -126,7 +125,7 @@ const delay = ms => new Promise(res => setTimeout(res, ms));
     }
 
     showInfo(frame, trainsParsed, keys)
-*/
+
 })();
 
 const showInfo = ((i, trainsParsed, keys, recordIt = false) => {
