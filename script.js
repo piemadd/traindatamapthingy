@@ -105,7 +105,7 @@ const delay = ms => new Promise(res => setTimeout(res, ms));
     //}
 })();
 
-const showInfo = ((i, trainsParsed, keys) => {
+const showInfo = ((i, trainsParsed, keys, recordIt = false) => {
     let timeThingy = document.getElementById('time')
     let tempList = trainsParsed[keys[i]]
     for (let j = 0; j < tempList.length; j++) {
@@ -138,7 +138,9 @@ const showInfo = ((i, trainsParsed, keys) => {
     
     console.log('next')
 
-    screenShot(markers, `${i}.jpg`)
+    if (recordIt == 'true') {
+        screenShot(markers, `${i}.jpg`)
+    }
 })
 
 const screenShot = ((markers, name = "image.jpg", recordit = 'false') => {
