@@ -158,7 +158,7 @@ const showInfo = ((i, trainsParsed, keys, recordIt = false) => {
     
     timeThingy.innerHTML = `${months[date.getMonth()]} ${date.getDate()}, ${date.getFullYear()} ${date.getHours().toString().padStart(2, '0')}:${date.getMinutes().toString().padStart(2, '0')} ${Intl.DateTimeFormat().resolvedOptions().timeZone}`
 
-    //screenShot(markers, `${i}.jpg`)
+    screenShot(markers, `${i}.jpg`)
 })
 
 const screenShot = ((markers, name = "image.jpg", recordit = 'false') => {
