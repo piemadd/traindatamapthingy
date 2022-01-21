@@ -140,16 +140,16 @@ const showInfo = ((i, trainsParsed, keys) => {
     
     console.log('next')
 
-    screenShot(`${i}.jpg`)
-    markers.clearLayers()
+    screenShot(markers, `${i}.jpg`)
 })
 
-const screenShot = ((name = "image.jpg") => {
+const screenShot = ((markers, name = "image.jpg") => {
     domtoimage.toJpeg(document.getElementsByTagName('body')[0], { quality: 0.95 })
     .then(function (dataUrl) {
         let link = document.createElement('a');
         link.download = name;
         link.href = dataUrl;
         link.click();
+        markers.clearLayers()
     });
 })
