@@ -141,6 +141,7 @@ const showInfo = ((i, trainsParsed, keys) => {
     console.log('next')
 
     screenShot(`${i}.jpg`)
+    markers.clearLayers()
 })
 
 const screenShot = ((name = "image.jpg") => {
