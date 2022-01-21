@@ -45,8 +45,8 @@ let pieroMarker = L.marker([50.5, 30.5], {icon: icon}).addTo(map);
 let markers = L.layerGroup().addTo(map);
 //let markers = []
 
-//map.setView([39.14710270770074, -96.1962890625], 5); //us
-map.setView([41.02964338716641, -74.24560546875001], 7); //nec
+map.setView([39.14710270770074, -96.1962890625], 5); //us
+//map.setView([41.02964338716641, -74.24560546875001], 7); //nec
 
 
 const delay = ms => new Promise(res => setTimeout(res, ms));
@@ -96,7 +96,6 @@ const delay = ms => new Promise(res => setTimeout(res, ms));
         }
     }
 
-    /*
     console.log('no recording')
     let frame = urlParams.get('frame')
     
@@ -105,7 +104,7 @@ const delay = ms => new Promise(res => setTimeout(res, ms));
     }
 
     showInfo(frame, trainsParsed, keys)
-    */
+    
     
     
     //}
