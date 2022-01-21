@@ -76,9 +76,6 @@ const delay = ms => new Promise(res => setTimeout(res, ms));
 
     console.log(keys.length)
 
-    //for (let i = 0; i < keys.length; i++) {
-    //for (let i = 0; i < 10; i++) {
-
     const urlParams = new URLSearchParams(window.location.search);
 
     let recordIt = urlParams.get('record')
@@ -104,10 +101,6 @@ const delay = ms => new Promise(res => setTimeout(res, ms));
     }
 
     showInfo(frame, trainsParsed, keys)
-    
-    
-    
-    //}
 })();
 
 const showInfo = ((i, trainsParsed, keys, recordIt = false) => {
@@ -115,9 +108,7 @@ const showInfo = ((i, trainsParsed, keys, recordIt = false) => {
     let tempList = trainsParsed[keys[i]]
     for (let j = 0; j < tempList.length; j++) {
         let marker = L.marker(tempList[j].coordinates, {rotationAngle: getAngle(tempList[j].heading), icon: icon});
-        //marker.addTo(map);
         marker.addTo(markers)
-        //markers.push(marker);
     }
 
     let months = {
@@ -140,10 +131,8 @@ const showInfo = ((i, trainsParsed, keys, recordIt = false) => {
     console.log(keys[i])
     
     timeThingy.innerHTML = `${months[date.getMonth()]} ${date.getDate()}, ${date.getFullYear()} ${date.getHours().toString().padStart(2, '0')}:${date.getMinutes().toString().padStart(2, '0')} ${Intl.DateTimeFormat().resolvedOptions().timeZone}`
-    
-    console.log('next')
 
-    screenShot(markers, `${i}.jpg`)
+    //screenShot(markers, `${i}.jpg`)
 })
 
 const screenShot = ((markers, name = "image.jpg", recordit = 'false') => {
