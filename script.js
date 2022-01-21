@@ -94,16 +94,18 @@ const delay = ms => new Promise(res => setTimeout(res, ms));
             await delay(1000);
             console.log('finished frame ' + i)
         }
-    } else {
-        console.log('no recording')
-        let frame = urlParams.get('frame')
-        
-        if (frame == undefined) {
-            frame = 0
-        }
-    
-        showInfo(frame, trainsParsed, keys)
     }
+
+    /*
+    console.log('no recording')
+    let frame = urlParams.get('frame')
+    
+    if (frame == undefined) {
+        frame = 0
+    }
+
+    showInfo(frame, trainsParsed, keys)
+    */
     
     
     //}
@@ -142,9 +144,7 @@ const showInfo = ((i, trainsParsed, keys, recordIt = false) => {
     
     console.log('next')
 
-    if (recordIt == 'true') {
-        screenShot(markers, `${i}.jpg`)
-    }
+    screenShot(markers, `${i}.jpg`)
 })
 
 const screenShot = ((markers, name = "image.jpg", recordit = 'false') => {
