@@ -64,7 +64,7 @@ let icons = {
     'NEC': iconNEC
 }
 
-let pieroMarker = L.marker([50.5, 30.5], {icon: icon}).addTo(map);
+//let pieroMarker = L.marker([50.5, 30.5], {icon: icon}).addTo(map);
 
 let markers = L.layerGroup().addTo(map);
 //let markers = []
