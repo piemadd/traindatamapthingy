@@ -14,22 +14,36 @@ html, body, #map {
     z-index: 10000;
     font-family: "Inter", sans-serif;
     color: #fff;
-    background-color: #000;
+    background-color: #1a2637;
     border-top-right-radius: 12px;
     padding: 4px;
-    padding-right: 8px;
+    padding-right: 12px;
     margin: 0;
 }
 
-.info h1 {
+.key {
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 10000;
+    font-family: "Inter", sans-serif;
+    color: #fff;
+    background-color: #1a2637;
+    border-bottom-right-radius: 12px;
+    padding: 4px;
+    padding-right: 12px;
+    margin: 0;
+}
+
+.info h1, .key h1 {
     font-size:24px;
 }
 
-.info h2 {
+.info h2, .key h2 {
     font-size:20px;
 }
 
-.info p {
+.info p, .key p {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -38,4 +52,14 @@ html, body, #map {
 
 .info h1, h2, p {
     margin: 0;
+}
+
+.iconKey {
+    margin: 4px;
+    width: 24x;
+    height: 24px;
+}
+
+.titleKey {
+    margin: 4px;
 }

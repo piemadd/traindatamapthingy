@@ -28,40 +28,42 @@ const getAngle = (heading) => {
 L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
     attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
     maxZoom: 25,
-    id: 'mapbox/streets-v11',
+    //id: 'mapbox/streets-v11',
+    id: 'piemadd/ckyugw7ui000y14o2nq8we94g',
     tileSize: 512,
     zoomOffset: -1,
     accessToken: 'pk.eyJ1IjoicGllbWFkZCIsImEiOiJja2ltYzQ5YWMwcnZtMnJxbWttcGQ2MHF4In0.eHizY2ZVCp-mp0ViI5ZIEg'
 }).addTo(map);
 
-let icon = L.icon({
-    iconUrl: 'icon.png',
-    iconSize: [16, 16],
-    iconAnchor: [8, 8]
+let iconPiero = L.icon({
+    iconUrl: 'pieroicon.png',
+    iconSize: [12, 12],
+    iconAnchor: [6, 6]
 });
 
 let iconLong = L.icon({
     iconUrl: 'iconLong.png',
-    iconSize: [16, 16],
-    iconAnchor: [8, 8]
+    iconSize: [12, 12],
+    iconAnchor: [6, 6]
 });
 
 let iconState = L.icon({
     iconUrl: 'iconState.png',
-    iconSize: [16, 16],
-    iconAnchor: [8, 8]
+    iconSize: [12, 12],
+    iconAnchor: [6, 6]
 });
 
 let iconNEC = L.icon({
     iconUrl: 'iconNEC.png',
-    iconSize: [16, 16],
-    iconAnchor: [8, 8]
+    iconSize: [12, 12],
+    iconAnchor: [6, 6]
 });
 
 let icons = {
     'Long': iconLong,
     'State': iconState,
-    'NEC': iconNEC
+    'NEC': iconNEC,
+    'Piero': iconPiero
 }
 
 //let pieroMarker = L.marker([50.5, 30.5], {icon: icon}).addTo(map);
@@ -70,28 +72,13 @@ let markers = L.layerGroup().addTo(map);
 //let markers = []
 
 //map.setView([39.14710270770074, -96.1962890625], 5); //us
-map.setView([41.02964338716641, -74.24560546875001], 7); //nec
+//map.setView([41.02964338716641, -74.24560546875001], 7); //nec
+map.setView([37.34395908944491, -120.39916992187501], 7); //cali
 
 
 const delay = ms => new Promise(res => setTimeout(res, ms));
 
 (async () => {
-    let lineData = await fetchRetry('./nationalRoute.json', 100, 3);
-    let linesParsed = await lineData.json()
-
-    let features = linesParsed.features;
-
-    for (let i = 0; i < features.length; i++) {
-        let coordinates = features[i].geometry.coordinates;
-
-        let coordinatesUnscrambled = [];
-
-        for (let j = 0; j < coordinates.length; j++) {
-            coordinatesUnscrambled.push([coordinates[j][1], coordinates[j][0]])
-        }
-        
-        L.polyline(coordinatesUnscrambled, {color: 'red'}).addTo(map);
-    }
     
     let trainData = await fetchRetry('./listMin.json', 100, 3);
     let trainsParsed = await trainData.json()
@@ -133,8 +120,12 @@ const showInfo = ((i, trainsParsed, keys, recordIt = false) => {
     let timeThingy = document.getElementById('time')
     let tempList = trainsParsed[keys[i]]
     for (let j = 0; j < tempList.length; j++) {
+        if (tempList[j].velocity == null) {tempList[j].velocity = 0}
         //console.log(tempList[j].objectID + ' - ' + tempList[j].coordinates)
-        let marker = L.marker(tempList[j].coordinates, {rotationAngle: getAngle(tempList[j].heading), icon: icons[tempList[j].trainType]});
+        let marker = L.marker(tempList[j].coordinates, {
+            icon: icons[tempList[j].trainType]
+        });
+        marker.bindPopup('Train Name: ' + tempList[j].routeName + '<br />Velocity: ' + tempList[j].velocity.toFixed(2) + ' mph').openPopup();
         marker.addTo(markers)
     }
 
