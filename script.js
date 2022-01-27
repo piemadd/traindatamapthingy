@@ -73,8 +73,7 @@ let markers = L.layerGroup().addTo(map);
 
 //map.setView([39.14710270770074, -96.1962890625], 5); //us
 //map.setView([41.02964338716641, -74.24560546875001], 7); //nec
-//map.setView([37.34395908944491, -120.39916992187501], 7); //cali 1440p
-map.setView([37.34395908944491, -120.39916992187501], 6); //cali 1080p
+map.setView([37.34395908944491, -120.39916992187501], 7); //cali
 
 const delay = ms => new Promise(res => setTimeout(res, ms));
 
