@@ -71,9 +71,9 @@ let icons = {
 let markers = L.layerGroup().addTo(map);
 //let markers = []
 
-//map.setView([39.14710270770074, -96.1962890625], 5); //us
+map.setView([39.14710270770074, -96.1962890625], 5); //us
 //map.setView([41.02964338716641, -74.24560546875001], 7); //nec
-map.setView([37.34395908944491, -120.39916992187501], 7); //cali
+//map.setView([37.34395908944491, -120.39916992187501], 7); //cali
 
 const delay = ms => new Promise(res => setTimeout(res, ms));
 
@@ -95,7 +95,7 @@ const delay = ms => new Promise(res => setTimeout(res, ms));
     if (recordIt == 'true') {
         //for (let i = 0; i < 10; i++) {
         console.log('recording')
-        for (let i = 0; i < 1590; i++) {
+        for (let i = 0; i < keys.length; i++) {
             showInfo(i, trainsParsed, keys, 'true')
             console.log('recorded ' + i)
             await delay(1000);
@@ -103,14 +103,14 @@ const delay = ms => new Promise(res => setTimeout(res, ms));
         }
     }
 
-    
+    /*
     console.log('no recording')
     let frame = urlParams.get('frame')
     
     if (frame == undefined) {
         frame = 0
     }
-    
+    */
     
     showInfo(frame, trainsParsed, keys)
 
