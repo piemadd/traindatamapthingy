@@ -92,30 +92,32 @@ const delay = ms => new Promise(res => setTimeout(res, ms));
 
     console.log(recordIt)
 
+    recordIt = 'false'
+
     if (recordIt == 'true') {
         //for (let i = 0; i < 10; i++) {
         console.log('recording')
-        for (let i = 8093; i < keys.length; i+= 1) {
-            if (i % 5 != 0) {
+        //for (let i = 0; i < keys.length; i+= 1) {
+        for (let i = 0; i < 1; i+= 1) {
+            //if (i % 5 != 0) {
                 console.log('starting ' + i)
                 showInfo(i, trainsParsed, keys, 'true')
                 await delay(1000);
                 console.log('finished frame ' + i)
-            }
-            
+            //}
         }
     }
 
-    /*
+    
     console.log('no recording')
     let frame = urlParams.get('frame')
     
     if (frame == undefined) {
         frame = 0
     }
-    */
     
-    //showInfo(frame, trainsParsed, keys)
+    
+    showInfo(frame, trainsParsed, keys)
 
 })();
 
@@ -153,7 +155,7 @@ const showInfo = ((i, trainsParsed, keys, recordIt = false) => {
     
     timeThingy.innerHTML = `${months[date.getMonth()]} ${date.getDate()}, ${date.getFullYear()} ${date.getHours().toString().padStart(2, '0')}:${date.getMinutes().toString().padStart(2, '0')} ${Intl.DateTimeFormat().resolvedOptions().timeZone}`
 
-    screenShot(markers, `${i}.jpg`)
+    //screenShot(markers, `${i}.jpg`)
 })
 
 const screenShot = ((markers, name = "image.jpg", recordit = 'false') => {
