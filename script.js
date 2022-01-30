@@ -113,7 +113,7 @@ const delay = ms => new Promise(res => setTimeout(res, ms));
     }
     */
     
-    showInfo(frame, trainsParsed, keys)
+    //showInfo(frame, trainsParsed, keys)
 
 })();
 
